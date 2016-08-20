@@ -35,82 +35,90 @@
 	</head>
 
 	<body>
-
+		
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Advanced Linux Commands</h1>
+					<h1>GNU Debugger</h1>
 
-
-					<p><font color=grey>By Amal Jose</font></p>
-
+		
+					<p><font color=grey>By Yash Agarwal</font></p>
+			
 				</section>
 
-				<section>
+				
 					<section>
-						<h2>alias</h2>
+						<h2>Why GDB?</h2>
 						<ul>
-							<li>Launch any command or group of commands by entering a pre-set string</li>
-							<li>Allows a user to create simple names or abbreviations for commands</li>
-
+							<li>Find out why your program crashed.</li>
+							<li>Allows you to see what is going on ‘‘inside’’ your C program while it executes.</li>
 						</ul>
-
+						
 					</section>
 					<section>
-						<h2>Basic Syntax</h2>
-						<br><p><font color=red>alias <font color=orange>&lt;String&gt; </font>= <font color=orange>&lt;Command&gt;</font></font></p>
-						</p><br>
-						<h3>Examples</h3>
-						<p><font color=green>alias p = <font color=orange>"pwd" </font></font></p>
+						<h2>Executing a C program</h2>
+						<ol>
+							<li>Download this file <a href="#">sum.c</a></li>
+							<li>Compile: <font color=red>gcc -g <font color=orange>sum.c</font></font></li>
+							<li>Run: <font color=red>./a.out</font></li>
+						</ol>
+						<br />
+						<br />
+						<h1><span class="fragment">Aw! Crashh!</span></h1>
+						</section>
+						
+						<br />
 					</section>
-
+					
 					<section>
-						<h2>Alias</h2>
+						<h2>Let's Fix it!</h2>
 						<br>
-						<p>An alias can be created with the same name as the core name of a command</p>
+						<p>Start GDB: <font color=red>gdb a.out</font></p>
 						<br>
-						<p>An alias named ls could be created for the command ls -al</p>
-						<br>
-						<p><font color=green>alias ls= <font color=orange>"ls -al"</font></font></font></p>
+						<p>Now execute the program by typing <font color=red>run</font></p>
+						<br />
+						<span class="fragment"><h1>Ahha!</h1>
+						<p>Now quit the program by typing <font color=red>q</font></p></span>
+						<!-- <p><font color=green>alias ls= <font color=orange>"ls -al"</font></font></font></p> -->
 					</section>
-
+					
 					<section>
-						<h2>Alias</h2>
-						<br>
-						<p>Multiple commands can be included in the same alias</p>
-						<br>
-						<p>Insert them within the same pair of quotation marks and Separate them with semicolons</p>
-						<br>
-						<p><font color=green>alias pl = <font color=orange>'pwd; ls'</font></font></font></p>
-					</section>
+						<h2>More GDB Commands</h2>
+						<p>Download this file <a href="#">count.c</a></p>
+						<p>Run it using GDB</p>
 
+					</section>
+					
 					<section>
-						<h2>Alias</h2>
+						<h2>Looking Around</h2>
 						<br>
-						<p>Aliases can even be created to call other aliases</p>
-
-						<p><font color=green>alias l=<font color=orange>'ls -a'</font></font></p>
-						<p><font color=green>alias pl=<font color=orange>'p; l'</font></font></p>
+						<h2>print</h2>
+						<p><font color=green>print<font color=orange> &lt;variable&gt;</font></font></p>
+						<p>e.g. <font color=green>print<font color=orange> array[5]</font></font></p>
 						<br>
-						<p>Aliases can be used with any argument that the command can be used with</p>
 
-
-						<p><font color=green>l <font color=orange>/home/Documents</font></font></p>
+						<h2>list</h2>
+						<p><font color=green>list<font color=orange> [line number]</font></font></p>
+						<p>e.g. <font color=green>list<font color=orange> 20</font></font></p>
+						<br>
+						
+							
+						<p><font color=green>l <font color=orange>/home/Documents</font></font></p>	
 					</section>
-
+					
 					<section>
 						<h3>Alias</h3>
 						<p>Any alias set up with it remains in effect only during the current login session</p>
 						<p>Type <font color=green>alias</font> only to see a list of aliases.</p>
 						<p>Use <font color=green>unalias</font> <font color=orange><i>alias-name</i></font> to remove an alias</p>
-
+						
 					</section>
-
-
-				</section>
-
+					
+					
+				
+				
 				<section>
 					<section>
 						<h2>bc</h2>
@@ -126,20 +134,20 @@
 <!--
 				PIPE
 -->
-
+				
 				<section>
 					<section>
 						<h2>I/O Redirection</h2>
 						<h4>Pipe</h4>
 						<p>Symbol used to provide output of one command as input to another command</p>
-
+						
 						<h4>&gt;</h4>
 						<p>Used to direct the output to a file.</p>
 						<h4>&gt;&gt;</h4>
 						<p> Used to append the output to a file</p>
 					</section>
 				</section>
-
+				
 				<!-- GREP>< -->
 				<section>
 					<section>
@@ -148,28 +156,28 @@
 						<ul>
 							<li>Used to search text for patterns specified by the user</li>
 							<li>Allows a user to create simple names or abbreviations for commands</li>
-
+							
 						</ul>
-
+						
 -->
 						<p>Used to search text for patterns specified by the user</p>
 						<p>Basic Syntax:</p>
 						<p></p><font color=green>grep </font> <font color=orange>&lt;pattern&gt;  &lt;file&gt;</font></p>
-						<p>To see the occurances of 'is' in a file 'Intro.txt':<br>
-							<font color=green>grep </font> <font color=orange>'is'  Intro.txt</font> </p>
+						<p>To see the occurances of 'is' in a file 'Intro.txt':<br> 
+							<font color=green>grep </font> <font color=orange>'is'  Intro.txt</font> </p>				
 					</section>
 				</section>
-
+				
 				<section>
 				<h2>ping</h2>
 				<p>Used to check if an address is accessible</p>
 				<p>Syntax: <font color=green>ping </font> <font color=orange>&lt;destination&gt;</font></p>
 				<p>ping transmits packets to the address and checks if it is received</p>
 				<p>To restrict number of packets use <font color=green>ping -c &lt;no&gt; </font></p>
-				<p>Example <font color=green>ping </font> -c  5 <font color=orange>google.com</font></p>
+				<p>Example <font color=green>ping </font> -c  5 <font color=orange>google.com</font></p>			
 				</section>
-
-
+				
+				
 				<section>
 				<h2>ps</h2>
 				<p>Used to provide information about the currently running processes including their process identification numbers (PIDs)</p>
@@ -177,7 +185,7 @@
 				</section>
 				<section>
 				<h2>kill</h2>
-				<p>Used to kill a process.</p>
+				<p>Used to kill a process.</p>		
 				<p>Syntax: <font color=green>kill &lt;pid&gt;</font> </p>
 				</section>
 				<section>
