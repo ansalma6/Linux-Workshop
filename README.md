@@ -1,4 +1,4 @@
 # Linux-Workshop
-Linux Workshop 21-08-2016.
+Linux Workshop 09-09-2017.
 
-## access the slides at https://yash2696.github.io/Linux-Workshop/Slide
+## access the slides at https://ansalma6.github.io/Linux-Workshop/Slide
